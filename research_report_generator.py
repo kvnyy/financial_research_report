@@ -160,32 +160,32 @@ print("="*80)
 all_search_results = {}
 
 # 1. 搜索目标公司行业信息
-print(f"\n搜索目标公司 {target_company} 的行业信息")
-target_search_keywords = f"{target_company} 行业地位 市场份额 竞争分析 业务模式"
-target_results = DDGS().text(
-    keywords=target_search_keywords,
-    region="cn-zh",
-    max_results=10
-)
-all_search_results[target_company] = target_results
+# print(f"\n搜索目标公司 {target_company} 的行业信息")
+# target_search_keywords = f"{target_company} 行业地位 市场份额 竞争分析 业务模式"
+# target_results = DDGS().text(
+#     keywords=target_search_keywords,
+#     region="cn-zh",
+#     # max_results=10
+# )
+# all_search_results[target_company] = target_results
 
 # 2. 搜索竞争对手行业信息
-print(f"\n搜索竞争对手的行业信息")
-for company in listed_companies:
-    company_name = company.get('name')
-    search_keywords = f"{company_name} 行业地位 市场份额 业务模式 发展战略"
-    competitor_results = DDGS().text(
-        keywords=search_keywords,
-        region="cn-zh",
-        max_results=10
-    )
-    all_search_results[company_name] = competitor_results
-    time.sleep(15)
+# print(f"\n搜索竞争对手的行业信息")
+# for company in listed_companies:
+#     company_name = company.get('name')
+#     search_keywords = f"{company_name} 行业地位 市场份额 业务模式 发展战略"
+#     competitor_results = DDGS().text(
+#         keywords=search_keywords,
+#         region="cn-zh",
+#         # max_results=10
+#     )
+#     all_search_results[company_name] = competitor_results
+#     time.sleep(15)
 
 # 保存所有搜索结果的JSON文件
 search_results_file = os.path.join(industry_info_dir, "all_search_results.json")
-with open(search_results_file, 'w', encoding='utf-8') as f:
-    json.dump(all_search_results, f, ensure_ascii=False, indent=2)
+# with open(search_results_file, 'w', encoding='utf-8') as f:
+#     json.dump(all_search_results, f, ensure_ascii=False, indent=2)
 
 # ========== 2. 公司信息整理 ==========
 def get_company_infos(data_dir:str="./company_info"):
